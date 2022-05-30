@@ -1,0 +1,436 @@
+$maxWidth: 1024px;
+
+html {
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+    font-size: inherit;
+    color: inherit;
+    margin: 0;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1, h2, h3, header .menu {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
+}
+
+h2, header .menu {
+    font-size: 1.8rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+.menu a:focus-within, button:focus-within {
+    outline: none;
+}
+
+body {
+    margin: 0;
+    font-family: 'Alata', sans-serif;
+
+    & > header, & > footer {
+        padding: 3rem 1.5rem;
+        color: #fff;
+    }
+
+    & > main {
+        padding: 5rem 1.5rem;
+    }
+
+    .container {
+        max-width: $maxWidth;
+        margin: 0 auto;
+    }
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    a {
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            height: 1px;
+            width: 100%;
+            background-color: #fff;
+            bottom: -.2rem;
+            left: 0;
+            transform: scaleX(0);
+            transition: transform 200ms;
+        }
+
+        &:hover::after, &:focus-within::after {
+            transform: scaleX(1);
+        }
+    }
+}
+
+header {
+    background-image: url(../images/mobile/image-hero.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    min-height: 400px;
+    max-height: 650px;
+    position: relative;
+
+    .btn-menu, .logo {
+        position: relative;
+        z-index: 1000;
+    }
+
+    .bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .btn-menu {
+        background-color: transparent;
+        border: none;
+        animation: transform 200ms;
+        img {pointer-events: none;}
+    }
+
+    .menu {
+        position: absolute;
+        z-index: 500;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        padding-left: 1.5rem;
+        transform: translateX(-100%);
+        transition: transform 200ms;
+        text-transform: uppercase;
+        background-color: #000;
+
+        &.show {
+            transform: translateX(0);
+        }
+
+        a {
+            width: fit-content;
+            margin: .5rem 0;
+        }
+    }
+    
+
+    .title {
+        border: 1px solid #fff;
+        padding: 1.5rem 2.5rem;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        user-select: none;
+        font-size: 2rem;
+        filter: drop-shadow(0 0 5px rgb(87, 0, 128));
+        text-shadow: 0 0 5px rgb(87, 0, 128);
+        box-shadow: inset 0 0 10px rgba(87, 0, 128, 0.466), 0 0 10px rgba(174, 0, 255, 0.534);
+    }
+}
+
+@media (orientation: landscape) {
+    header {
+        background-image: url(../images/desktop/image-hero.jpg);
+    }
+}
+
+footer {
+    background-color: #000;
+
+
+    .container {
+        height: 18rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .menu {
+        align-items: center;
+        justify-content: space-between;
+        height: 8rem;
+    }
+
+    .social {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 200px;
+    }
+
+    .rights {
+        color: hsl(0, 0%, 41%);
+    }
+}
+
+.leader {
+    margin-bottom: 5rem;
+    
+    article {
+        max-width: 35em;
+        margin: 0 auto;
+        text-align: center;
+
+        h2 {
+            margin: 2rem 0 1rem;
+        }
+
+        p {
+            color: hsl(0, 0%, 55%);
+        }
+    }
+}
+
+.creations {
+    ul {
+        padding: 0;
+        li {
+            height: 35vw;
+            margin-bottom: 1rem;
+            list-style-type: none;
+    
+            a {
+                display: block;
+                height: 100%;
+                position: relative;
+        
+                &::after {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    background-size: cover;
+                    background-position: center;
+                    filter: brightness(50%);
+                    transition: filter 200ms;
+                }
+        
+                
+            }
+    
+            &:hover a::after, &:focus-within a::after {
+                filter: brightness(100%);
+            }
+            
+            &:nth-child(1) a::after{
+                background-image: url(../images/mobile/image-deep-earth.jpg)
+            }
+            &:nth-child(2) a::after{
+                background-image: url(../images/mobile/image-night-arcade.jpg)
+            }
+            &:nth-child(3) a::after{
+                background-image: url(../images/mobile/image-soccer-team.jpg)
+            }
+            &:nth-child(4) a::after{
+                background-image: url(../images/mobile/image-grid.jpg)
+            }
+            &:nth-child(5) a::after{
+                background-image: url(../images/mobile/image-from-above.jpg)
+            }
+            &:nth-child(6) a::after{
+                background-image: url(../images/mobile/image-pocket-borealis.jpg)
+            }
+            &:nth-child(7) a::after{
+                background-image: url(../images/mobile/image-curiosity.jpg)
+            }
+            &:nth-child(8) a::after{
+                background-image: url(../images/mobile/image-fisheye.jpg)
+            }
+        }
+    }
+
+
+    h2 {
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    h3 {
+        position: absolute;
+        color: #fff;
+        bottom: 1.5rem;
+        left: 1.5rem;
+        z-index: 20;
+        text-transform: uppercase;
+    }
+
+    .btn-seeAll {
+        font-family: inherit;
+        display: block;
+        margin: 0 auto;
+        padding: .75rem 2rem;
+        font-size: 1.2rem;
+        letter-spacing: .25rem;
+        background-color: #fff;
+        border: 2px solid #000;
+        transition: all 300ms;
+
+        &:hover,
+        &:focus-within
+        {
+            background-color: #000;
+            color: #fff;
+        }
+        &:active {
+            transform: scale(0.98);
+        }
+    }
+}
+
+
+@media screen and (min-width: 768px) {
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .menu {
+        flex-direction: row;
+    }
+
+    header {
+        .btn-menu {display: none;}
+
+        .menu {
+            position: relative;
+            background-color: transparent;
+            padding: 0;
+            transform: none;
+            text-transform: capitalize;
+            font-family: inherit;
+            font-size: inherit;
+            a {margin-left: 2.5rem;}
+        }
+
+        .title {
+            left: unset;
+            transform: translate(0, -50%);
+            padding: 2rem 4rem;       
+            font-size: 2.5rem;
+        }
+    }
+
+    footer {
+
+        .container {
+            height: fit-content;
+            display: grid;
+            grid-template-areas: 
+                'logo social'
+                'menu rights';
+            row-gap: 2rem;
+        }
+        .menu {
+            height: fit-content;
+            grid-area: menu;
+            a {margin-right: 2rem;}
+        }
+        .social {
+            grid-area: social;
+            justify-self: end;
+        }
+    }
+
+    .leader {
+        position: relative;
+        
+        article {
+            position: absolute;
+            z-index: 100;
+            right: 0;
+            bottom: 0;
+            width: 50%;
+            padding: 4rem 0 0 4rem;
+            background-color: #fff;
+            text-align: start;
+
+            h2 {
+                margin: 0 0 2rem;
+            }
+        }
+    }
+
+    .creations {
+        display: grid;
+        row-gap: 1rem;
+        align-items: center;
+        grid-template-areas: 
+            'title btn'
+            'img img';
+
+        h2 {
+            grid-area: title;
+            text-align: start;
+            margin: 0;
+        }
+
+        .btn-seeAll {
+            grid-area: btn;
+            justify-self: self-end;
+            margin: 0;
+        }
+
+        ul {
+            grid-area: img;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+
+            li {
+                max-width: 256px;
+                max-height: 450px;
+                margin: 0;
+
+                &:nth-child(1) a::after{
+                    background-image: url(../images/desktop/image-deep-earth.jpg)
+                }
+                &:nth-child(2) a::after{
+                    background-image: url(../images/desktop/image-night-arcade.jpg)
+                }
+                &:nth-child(3) a::after{
+                    background-image: url(../images/desktop/image-soccer-team.jpg)
+                }
+                &:nth-child(4) a::after{
+                    background-image: url(../images/desktop/image-grid.jpg)
+                }
+                &:nth-child(5) a::after{
+                    background-image: url(../images/desktop/image-from-above.jpg)
+                }
+                &:nth-child(6) a::after{
+                    background-image: url(../images/desktop/image-pocket-borealis.jpg)
+                }
+                &:nth-child(7) a::after{
+                    background-image: url(../images/desktop/image-curiosity.jpg)
+                }
+                &:nth-child(8) a::after{
+                    background-image: url(../images/desktop/image-fisheye.jpg)
+                }
+
+            }
+        }
+   
+    }
+}
